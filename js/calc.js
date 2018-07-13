@@ -1,4 +1,6 @@
 //add your code here
+//dont need return
+
 $(document).ready(function(){
 
 
@@ -12,15 +14,19 @@ $(document).ready(function(){
 
 
 function doMath(){
+  //gets information when "=" button is clicked
   $('#equals').on('click', function(){
+    //can also use .click()
     num1 = parseFloat(num1.val());
+    //num1 = Number.parseInt(num1.val())
     num2 = parseFloat(num2.val());
     operator = operator.val();
-    validate(operator, num1, num2);
+    result(operator, num1, num2);
   });
 }  
 
 function result(operator, num1, num2) {
+  //validate calls this function
   if (operator == '+'){
     $('#result').html(num1 + num2);
     return num1 + num2;
@@ -36,6 +42,10 @@ function result(operator, num1, num2) {
   else if (operator == '/'){
     $('#result').html(num1 * num2);
     return num1 / num2;
+  }
+  else{
+    $('#result').html("Unable to read input");
+    return 'Unable to read input'
   }
 }
 
